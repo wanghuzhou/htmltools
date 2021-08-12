@@ -1,170 +1,162 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>html工具整合</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
-  <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-  <style>
-		.normal_style{
-			display: block;
-			width: 100%;
-			height: 20em;
-			//margin:10px auto;
-		}
-	</style>
+<head>
+    <title>html工具整合</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <style>
+        .normal_style {
+            display: block;
+            width: 100%;
+            height: 20em;
+            /* margin:10px auto; */
+        }
+    </style>
 
 </head>
+
 <body>
 
-<div class="container">
-  <h2>html工具整合</h2>
-  <p>选项卡导航:</p>
-  <ul class="nav nav-tabs" id="myTab" role="tablist">
-    <li class="nav-item">
-        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#trim" role="tab" aria-controls="home"
-            aria-selected="true">
-            <h6>内容压缩</h6>
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#form-format" role="tab" aria-controls="profile"
-            aria-selected="false">
-            <h6>表单参数转换</h6>
-        </a>
-    </li>
-     <li class="nav-item">
-        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#base64pic" role="tab" aria-controls="contact"
-            aria-selected="false">
-            <h6>base64图片</h6>
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="xor-tab" data-toggle="tab" href="#xor" role="tab" aria-controls="xor"
-            aria-selected="false">
-            <h6>id转换</h6>
-        </a>
-    </li>
-</ul>
-	<div class="tab-content border border-top-0" id="myTabContent" >
-    <div class="tab-pane fade show active" id="trim" role="tabpanel" aria-labelledby="home-tab">
-        <!-- <ul class="list-group list-group-flush">
+    <div class="container">
+        <h2>html工具整合</h2>
+        <p>选项卡导航:</p>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#trim" role="tab" aria-controls="home"
+                    aria-selected="true">
+                    <h6>内容压缩</h6>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#form-format" role="tab"
+                    aria-controls="profile" aria-selected="false">
+                    <h6>表单参数转换</h6>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#base64pic" role="tab"
+                    aria-controls="contact" aria-selected="false">
+                    <h6>base64图片</h6>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="xor-tab" data-toggle="tab" href="#xor" role="tab" aria-controls="xor"
+                    aria-selected="false">
+                    <h6>id转换</h6>
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content border border-top-0" id="myTabContent">
+            <div class="tab-pane fade show active" id="trim" role="tabpanel" aria-labelledby="home-tab">
+                <!-- <ul class="list-group list-group-flush">
             <li class="list-group-item">内容压缩</li>
         </ul> -->
 
-		<p class="alert alert-dark">可对soap参数去除换行符和每行开头与结尾的空格符</p>
-
-		<textarea id="trim-befor" class="normal_style" placeholder="此处输入待压缩字符串"></textarea>
-		<textarea id="trim-after" readonly class="normal_style" placeholder="此处输出压缩后字符串"></textarea>
+                <p class="alert alert-dark">可对soap参数去除换行符和每行开头与结尾的空格符</p>
+                <textarea id="trim-befor" class="normal_style" placeholder="此处输入待压缩字符串"></textarea>
+                <textarea id="trim-after" readonly class="normal_style" placeholder="此处输出压缩后字符串"></textarea>
+            </div>
+            <div class="tab-pane fade" id="form-format" role="tabpanel" aria-labelledby="profile-tab">
+                <p class="alert alert-dark">表单参数转postman key-value形式</p>
+                <textarea id="getdata" class="normal_style" placeholder="此处输入get请求字符串"></textarea>
+                <textarea id="formdata" class="normal_style" placeholder="此处输出form-data字符串"></textarea>
+            </div>
+            <div class="tab-pane fade" id="base64pic" role="tabpanel" aria-labelledby="contact-tab">
+                <p class="alert alert-dark">base64图片互转</p>
+                <input id="input-file" type="file">
+                <hr>
+                <img style="max-height: 300px; height: 8em; min-width:8em;">
+                <hr>
+                <textarea id="base64text" style="display: block; width: 100%;height: 30em;"></textarea>
+            </div>
+            <div class="tab-pane fade" id="xor" role="tabpanel" aria-labelledby="xor-tab">
+                <p class="alert alert-dark">id转换</p>
+                <textarea id="id-befor" class="normal_style" placeholder=""></textarea>
+                <textarea id="id-after" readonly class="normal_style" placeholder=""></textarea>
+            </div>
+        </div>
     </div>
-    <div class="tab-pane fade" id="form-format" role="tabpanel" aria-labelledby="profile-tab">
-		<p class="alert alert-dark">表单参数转postman key-value形式</p>
-		<textarea id="getdata" class="normal_style" placeholder="此处输入get请求字符串"></textarea>
-		<textarea id="formdata" class="normal_style" placeholder="此处输出form-data字符串"></textarea>
-    </div>
-    <div class="tab-pane fade" id="base64pic" role="tabpanel" aria-labelledby="contact-tab">
 
-		<p class="alert alert-dark">base64图片互转</p>
-		<input id="input-file" type="file">
-		<hr>
-		<img style="max-height: 300px; height: 8em; min-width:8em;">
-		<hr>
-		<textarea id="base64text" style="display: block; width: 100%;height: 30em;"></textarea>
-    </div>
-    <div class="tab-pane fade" id="xor" role="tabpanel" aria-labelledby="xor-tab">
-		<p class="alert alert-dark">id转换</p>
-		<textarea id="id-befor" class="normal_style" placeholder=""></textarea>
-		<textarea id="id-after" readonly class="normal_style" placeholder=""></textarea>
-    </div>
-</div>
-</div>
+    <script>
 
-<script>
+        $(function () {
 
-	$(function () {
+            $("#trim-befor").blur(function () {
+                let getdata = $(this).val().trim();
+                let formdata = getdata.replace(/( *\n)+(\s)*/g, "");
+                $("#trim-after").val(formdata);
+            });
 
-		$("#trim-befor").blur(function () {
-			let getdata = $(this).val().trim();
-			let formdata = getdata.replace(/( *\n)+(\s)*/g,"");
+            $("#trim-after").click(function () {
+                $("#trim-after").select();
+                document.execCommand('copy');
+            });
 
-			$("#trim-after").val(formdata);
+            $("#getdata").blur(function () {
+                let getdata = decodeURI($(this).val().trim());
+                let formdata = getdata.replace(/=/g, ":").replace(/&/g, "\n")
+                $(this).val(getdata);
+                $("#formdata").val(formdata);
+            });
 
-			/* let xmlarray = getdata.split("\n");
-			let str = "";
-			for(let index in xmlarray) {
-				str+=xmlarray[index].trim();
-			};
-			$("#formdata").val(str); */
-			//$("#trim-after").select();
-			//document.execCommand('copy');
-		});
-		$("#trim-after").click(function () {
-			$("#trim-after").select();
-			document.execCommand('copy');
-		});
-
-		$("#getdata").blur(function () {
-			let getdata = decodeURI($(this).val().trim());
-			let formdata = getdata.replace(/=/g,":").replace(/&/g,"\n")
-            $(this).val(getdata);
-			$("#formdata").val(formdata);
-		});
-
-		function run(input_file, get_data) {
-            /*input_file：文件按钮对象*/
-            /*get_data: 转换成功后执行的方法*/
-            if (typeof (FileReader) === 'undefined') {
-                alert("抱歉，你的浏览器不支持 FileReader，不能将图片转换为Base64，请使用现代浏览器操作！");
-            } else {
-                try {
-                    /*图片转Base64 核心代码*/
-                    var file = input_file.files[0];
-                    //这里我们判断下类型如果不是图片就返回 去掉就可以上传任意文件
-                    if (!/image\/\w+/.test(file.type)) {
-                        alert("请确保文件为图像类型");
-                        return false;
+            function run(input_file, get_data) {
+                /*input_file：文件按钮对象*/
+                /*get_data: 转换成功后执行的方法*/
+                if (typeof (FileReader) === 'undefined') {
+                    alert("抱歉，你的浏览器不支持 FileReader，不能将图片转换为Base64，请使用现代浏览器操作！");
+                } else {
+                    try {
+                        /*图片转Base64 核心代码*/
+                        var file = input_file.files[0];
+                        //这里我们判断下类型如果不是图片就返回 去掉就可以上传任意文件
+                        if (!/image\/\w+/.test(file.type)) {
+                            alert("请确保文件为图像类型");
+                            return false;
+                        }
+                        var reader = new FileReader();
+                        reader.onload = function () {
+                            get_data(this.result);
+                        }
+                        reader.readAsDataURL(file);
+                    } catch (e) {
+                        alert('图片转Base64出错啦！' + e.toString())
                     }
-                    var reader = new FileReader();
-                    reader.onload = function () {
-                        get_data(this.result);
-                    }
-                    reader.readAsDataURL(file);
-                } catch (e) {
-                    alert('图片转Base64出错啦！' + e.toString())
                 }
             }
-        }
 
-		$("#input-file").change(function () {
-			run(this, function (data) {
-				$('img').attr('src', data);
-				$('#base64text').val(data);
-			});
-		});
+            $("#input-file").change(function () {
+                run(this, function (data) {
+                    $('img').attr('src', data);
+                    $('#base64text').val(data);
+                });
+            });
 
-		$("#base64text").change(function () {
-			if(this.value.indexOf("data:image/png;base64,") > -1){
-				$('img').attr('src', this.value);
-			}else{
-				$('img').attr('src', 'data:image/png;base64,' + this.value);
-			}
-		});
-		
-		$("#id-befor").blur(function () {
-			let raw_id = $(this).val().trim().replaceAll('_','@');
-			let newstr = '';
-			for (let index = 0; index < raw_id.length; index++) {
-				const n = raw_id.charCodeAt(index) ^ 116
-				newstr += String.fromCharCode(n)
-			}
-			$("#id-after").val(newstr.replaceAll('@','_'));
-		});
+            $("#base64text").change(function () {
+                if (this.value.indexOf("data:image/png;base64,") > -1) {
+                    $('img').attr('src', this.value);
+                } else {
+                    $('img').attr('src', 'data:image/png;base64,' + this.value);
+                }
+            });
 
-	});
-</script>
+            $("#id-befor").blur(function () {
+                let raw_id = $(this).val().trim().replaceAll('_', '@');
+                let newstr = '';
+                for (let index = 0; index < raw_id.length; index++) {
+                    const n = raw_id.charCodeAt(index) ^ 116
+                    newstr += String.fromCharCode(n)
+                }
+                $("#id-after").val(newstr.replaceAll('@', '_'));
+            });
+
+        });
+    </script>
 </body>
+
 </html>
