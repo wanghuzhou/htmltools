@@ -5,10 +5,10 @@
     <title>html工具整合</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
-    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.3/js/bootstrap.min.js"></script>
 
     <style>
         .normal_style {
@@ -28,25 +28,25 @@
         <p>选项卡导航:</p>
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#trim" role="tab" aria-controls="home"
+                <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#trim" role="tab" aria-controls="home"
                     aria-selected="true">
                     <h6>内容压缩</h6>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#form-format" role="tab"
+                <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#form-format" role="tab"
                     aria-controls="profile" aria-selected="false">
                     <h6>表单参数转换</h6>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#base64pic" role="tab"
+                <a class="nav-link" id="contact-tab" data-bs-toggle="tab" href="#base64pic" role="tab"
                     aria-controls="contact" aria-selected="false">
                     <h6>base64图片</h6>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="xor-tab" data-toggle="tab" href="#xor" role="tab" aria-controls="xor"
+                <a class="nav-link" id="xor-tab" data-bs-toggle="tab" href="#xor" role="tab" aria-controls="xor"
                     aria-selected="false">
                     <h6>id转换</h6>
                 </a>
@@ -63,7 +63,7 @@
                 <textarea id="trim-after" readonly class="normal_style" placeholder="此处输出压缩后字符串"></textarea>
             </div>
             <div class="tab-pane fade" id="form-format" role="tabpanel" aria-labelledby="profile-tab">
-                <p class="alert alert-dark">表单参数转postman key-value形式</p>
+                <p class="alert alert-dark">表单参数转postman key:value形式</p>
                 <textarea id="getdata" class="normal_style" placeholder="此处输入get请求字符串"></textarea>
                 <textarea id="formdata" class="normal_style" placeholder="此处输出form-data字符串"></textarea>
             </div>
@@ -108,7 +108,7 @@
             function run(input_file, get_data) {
                 /*input_file：文件按钮对象*/
                 /*get_data: 转换成功后执行的方法*/
-                if (typeof (FileReader) === 'undefined') {
+                if (typeof FileReader === 'undefined') {
                     alert("抱歉，你的浏览器不支持 FileReader，不能将图片转换为Base64，请使用现代浏览器操作！");
                 } else {
                     try {
