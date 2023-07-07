@@ -114,8 +114,10 @@
             });
 
             $("#trim-after").click(function () {
-                $("#trim-after").select();
-                document.execCommand('copy');
+                // $("#trim-after").select();
+                // document.execCommand('copy');
+                let selectText = $("#trim-after").select().val();
+                navigator.clipboard.writeText(selectText);
             });
 
             $("#getdata").blur(function () {
